@@ -1,0 +1,8 @@
+{
+    'mika': ['10's', 'soccer', 'california'],
+    'steven': ['20's', 'reading', 'california'],
+    'xiao': ['10's', 'soccer', 'arizona'],
+    'jacob': ['30's', 'soccer', 'florida'],
+    'taro': ['20's', 'surfing', 'washington'],
+    'paul': ['40's', 'soccer', 'california'],
+}
