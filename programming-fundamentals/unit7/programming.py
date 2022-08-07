@@ -1,21 +1,13 @@
-# Sample Answer	for	Programming	Assignment Unit	7
-# Python Program
-
-
+# variables
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-test_dups = ["zzz", "dog", "bookkeeper", "subdermatoglyphic",
-             "subdermatoglyphics"]
+test_dups = ["zzz", "dog", "bookkeeper",
+             "subdermatoglyphic", "subdermatoglyphics"]
 test_miss = ["zzz", "subdermatoglyphic",
              "the quick brown fox jumps over the lazy dog"]
 
 
-# From Section 11.2 of:
-# Downey, A. (2015). Think Python: How to think like a
-# computer scientist. Needham, Massachusetts: Green Tree
-# Press.
-
-
-def histogram(s):
+# count each letters and build a hashmap
+def histogram(s: str) -> dict:
     d = dict()
     for c in s:
         if c not in d:
@@ -25,49 +17,76 @@ def histogram(s):
     return d
 
 
-# Part 1
-def has_duplicates(s):
-    h = histogram(s)
-    for k, v in h.items():
-        if v > 1:
+# Part1 ###############################################
+
+
+# check if there's any duplicate in the string parameter
+def has_duplicate(s: str) -> bool:
+    counts = histogram(s)
+    for key in counts:
+        if counts[key] > 1:
             return True
     return False
 
 
-for s in test_dups:
-    if has_duplicates(s):
-        print(s, "has duplicates")
-    else:
-        print(s, "has no duplicates")
-
-
-# Part 2
-def missing_letters(s):
-    h = histogram(s)
-    m = []
-    for c in alphabet:
-        if c not in h:
-            m.append(c)
-    return ''.join(m)
-
-
-for s in test_miss:
-    m = missing_letters(s)
-    if len(m):
-        print(s, "is missing letters", m)
-    else:
-        print(s, "uses all the letters")
+# use has_duplicate with string values of the list test_dups
+def has_duplicate_in_test_dups() -> None:
+    for s in test_dups:
+        if has_duplicate(s):
+            print(f'{s} has duplicates')
+        else:
+            print(f'{s} has no duplicates')
 
 
 '''
-Output for Python	3
+output:
 zzz has duplicates
 dog has no duplicates
 bookkeeper has duplicates
 subdermatoglyphic has no duplicates
 subdermatoglyphics has duplicates
-zzz is missing letters abcdefghijklmnopqrstuvwxy
-subdermatoglyphic is missing letters fjknqvwxz
-the quick brown fox jumps over the lazy dog uses all the
-letters
 '''
+
+
+# Part2 ###############################################
+
+# return global variable "alphabet" excluding the letters which are in the string parameter "s"
+def missing_letters(s: str) -> str:
+    global alphabet
+    counts = histogram(s)
+    missing_list = list()
+    for char in alphabet:
+        if char not in counts:
+            missing_list.append(char)
+    alphabet = ''.join(missing_list)
+    return ''.join(missing_list)
+
+
+# use missing_letters with string values of the list test_miss
+def missing_letters_in_test_miss() -> None:
+    for s in test_miss:
+        missing_str = missing_letters(s)
+        if len(missing_str) > 0:
+            print(f'{s} is missing letters {alphabet}')
+        else:
+            print(f'{s} uses all the letters')
+
+
+'''
+output:
+zzz is missing letters abcdefghijklmnopqrstuvwxy
+subdermatoglyphic is missing letters fjknqvwx
+the quick brown fox jumps over the lazy dog uses all the letters
+'''
+
+
+# Main ###############################################
+
+
+def main():
+    has_duplicate_in_test_dups()
+    missing_letters_in_test_miss()
+
+
+# call the functions the instructor asked
+main()
