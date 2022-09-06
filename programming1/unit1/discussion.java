@@ -22,7 +22,7 @@ class Error {
     }
 
     public void syntax() {
-        System.out.printIn("Syntax Error.");
+        // System.out.printIn("Syntax Error.");
     }
 
     public float semantics(int num) {
