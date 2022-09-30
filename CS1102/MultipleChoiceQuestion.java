@@ -2,14 +2,7 @@ package CS1102;
 
 import javax.swing.JOptionPane;
 
-public class MultipleChoiceQuestion {
-    // class variables
-    static int nQuestions = 0;
-    static int nCorrect = 0;
-
-    // instance variables
-    String question;
-    String correctAnswer;
+public class MultipleChoiceQuestion extends Question {
 
     // constructor
     public MultipleChoiceQuestion(String query, String a, String b, String c, String d, String e, String answer) {
@@ -23,6 +16,7 @@ public class MultipleChoiceQuestion {
         correctAnswer = answer.toUpperCase();
     }
 
+    @Override
     public String ask() {
         while (true) {
             String answer = JOptionPane.showInputDialog(question);
@@ -37,20 +31,5 @@ public class MultipleChoiceQuestion {
                 JOptionPane.showMessageDialog(null, "Invalid answer. Please enter A, B, C, D, or E.");
             }
         }
-    }
-
-    public void check() {
-        ++nQuestions;
-        String answer = ask();
-        if (answer.equals(correctAnswer)) {
-            ++nCorrect;
-            JOptionPane.showMessageDialog(null, "Correct!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Incorrect. The correct answer is " + correctAnswer + ".");
-        }
-    }
-
-    public void showResults() {
-        JOptionPane.showMessageDialog(null, nCorrect + " correct out of " + nQuestions + " questions");
     }
 }
