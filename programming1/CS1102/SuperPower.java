@@ -1,4 +1,4 @@
-package CS1102;
+package programming1.CS1102;
 
 import javax.swing.JOptionPane;
 

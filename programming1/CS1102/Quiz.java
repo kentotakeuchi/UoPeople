@@ -1,4 +1,4 @@
-package CS1102;
+package programming1.CS1102;
 
 public class Quiz {
         public static void main(String[] args) {
