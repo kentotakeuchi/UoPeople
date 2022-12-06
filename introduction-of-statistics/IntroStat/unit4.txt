@@ -1,0 +1,155 @@
+> 13.10141 - 12.49025
+[1] 0.61116
+> 
+> 
+> 
+> (1.5*0.15 + 4*0.36 + 5.5*0.10 + 6*0.23 + 7.5*0.11 + 10*0.05)
+[1] 4.92
+> 
+> 
+> 
+> Y.val <- c(1.5,4,5.5,6,7.5,10)
+> P.val <- c(0.15,0.36,0.1,0.23,0.11,0.05)
+> sum(Y.val*P.val)
+[1] 4.92
+> 
+> 
+> 
+> E <- sum(Y.val*P.val)
+> Var <- sum((Y.val-E)^2*P.val)
+> sqrt(Var)
+[1] 2.093705
+> 
+> 
+> 
+> X.val <- c(1,2,3,4,5,6,7,8,9)
+> P.val <- c(1,1,1,1,1,1,1,1,1)/9
+> sum(X.val*P.val)
+[1] 5
+> c(1,1,1,1,1,1,1,1,1)/9
+[1] 0.1111111 0.1111111 0.1111111 0.1111111 0.1111111 0.1111111 0.1111111
+[8] 0.1111111 0.1111111
+> 
+> E <- sum(X.val*P.val)
+> sum((X.val-E)^2*P.val)
+[1] 6.666667
+> 
+> Var <- sum((X.val-E)^2*P.val)
+> sqrt(Var)
+[1] 2.581989
+> 
+> 
+> 
+> 10/9 + (-1)*8/9 = 2/9 = 0.2222
+Error in 2/9 = 0.2222 : 
+  target of assignment expands to non-language object
+> 
+> 
+> 
+> var(pop.2$diastolic)
+[1] 171.6469
+> sd(pop.2$systolic - pop.2$diastolic)
+[1] 3.950757
+> 
+> sd(pop.2$systolic) - sd(pop.2$diastolic)
+[1] -0.6111588
+> 
+> 
+> 
+> ASSIGNMENT
+Error: object 'ASSIGNMENT' not found
+> 
+> 
+> X <- C(7.2, 1.2, 1.8, 2.8, 18, -1.9, -0.1, -1.5, 13.0, 3.2, -1.1, 7.0, 0.5, 3.9, 2.1, 4.1, 6.5)
+Error in C(7.2, 1.2, 1.8, 2.8, 18, -1.9, -0.1, -1.5, 13, 3.2, -1.1, 7,  : 
+  object not interpretable as a factor
+> x <- c(7.2, 1.2, 1.8, 2.8, 18, -1.9, -0.1, -1.5, 13.0, 3.2, -1.1, 7.0, 0.5, 3.9, 2.1, 4.1, 6.5)
+> median(c)
+Error in sort.int(x, na.last = na.last, decreasing = decreasing, ...) : 
+  'x' must be atomic
+In addition: Warning message:
+In is.na(x) : is.na() applied to non-(list or vector) of type 'builtin'
+> median(x)
+[1] 2.8
+> summary(x)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -1.900   0.500   2.800   3.924   6.500  18.000 
+> 
+> table(x)
+x
+-1.9 -1.5 -1.1 -0.1  0.5  1.2  1.8  2.1  2.8  3.2  3.9  4.1  6.5    7  7.2   13 
+   1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1 
+  18 
+   1 
+> 
+> 6.5 + 1.5*6
+[1] 15.5
+> 0.5 - 1.5*6
+[1] -8.5
+> bar(x)
+Error in bar(x) : could not find function "bar"
+> barplot(x)
+> boxplot(x)
+> 
+> sd(x)
+[1] 5.249468
+> 
+> (0 * 0.10) + (1 * 0.15) + (2 * 0.25) + (3 * 0.10) + (4 * 0.15) + (5 * 0.10) + (6 * 0.15)
+[1] 2.95
+> 
+> v <- c (0,1,2,3,4,5,6)
+> p <- c (0.1,0.15,0.25,0.10,0.15,0.10,0.15)
+> E <- (0 * 0.10) + (1 * 0.15) + (2 * 0.25) + (3 * 0.10) + (4 * 0.15) + (5 * 0.10) + (6 * 0.15)
+> variance <- sum((v - E)^2 * p)
+> sd <- sqrt(variance)
+> sd
+[1] 1.909843
+> round(sd, 3)
+[1] 1.91
+> 
+> pop3 <- read.csv("pop3.csv")
+> table(pop3$type)
+
+    a     b     c 
+49949 33410 16641 
+> 
+> names(pop3)
+[1] "type" "time"
+> median(pop3$time)
+[1] 4.472685
+> 
+> var(pop3$time)
+[1] 54.91635
+> 
+> 
+> 
+> JOURNAL
+Error: object 'JOURNAL' not found
+> table()
+Error in table() : nothing to tabulate
+> ?table
+> 
+> value <- c(10, 11, 12, 13, 14, 15, 16)
+> probability <- c(0.50, 0,20, 0.10, 0.05, 0.05, 0.05, 0.05)
+> sum(value*probability)
+[1] 249.05
+Warning message:
+In value * probability :
+  longer object length is not a multiple of shorter object length
+> length(value)
+[1] 7
+> length(probability)
+[1] 8
+> probability <- c(0.50, 0.20, 0.10, 0.05, 0.05, 0.05, 0.05)
+> sum(value*probability)
+[1] 11.3
+> 10*0.5 + 11*0.2 + 12*0.1 + 13*0.05 + 14*0.05 + 15*0.05 + 16*0.05
+[1] 11.3
+> 
+> 
+> 
+> DISCUSSION
+Error: object 'DISCUSSION' not found
+> 0*0.7 + 1*0.25 + 2*0.05
+[1] 0.35
+> 
