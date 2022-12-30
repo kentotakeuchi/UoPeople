@@ -1,0 +1,97 @@
+// text
+> X.bar <- rep(0,10^5) > for(i in 1:10^5)
++{
++     X.samp <- sample(pop.1$height,100)
++     X.bar[i] <- mean(X.samp)
++}
+> hist(X.bar)
+
+> unif.10 <- rep(0,10^5)
+> unif.100 <- rep(0,10^5)
+> unif.1000 <- rep(0,10^5)
+> > for(i in 1:10^5)
+Error: unexpected '>' in ">"
+> +{
++ +     X.samp.10 <- runif(10,3,7)
++ +     unif.10[i] <- mean(X.samp.10)
++ +     X.samp.100 <- runif(100,3,7)
++ +     unif.100[i] <- mean(X.samp.100)
++ +     X.samp.1000 <- runif(1000,3,7)
++ +     X.samp.100 <- runif(100,3,7)
++ }
+> for(i in 1:10^5)
++     X.samp.10 <- runif(10,3,7)
+> for(i in 1:10^5)
++     X.samp.10 <- runif(10,3,7)
+> for(i in 1:10^5)
++ {
++     X.samp.10 <- runif(10,3,7)
++ unif.10[i] <- mean(X.samp.10)
++ X.samp.100 <- runif(100,3,7)
++ unif.100[i] <- mean(X.samp.100)
++ X.samp.1000 <- runif(1000,3,7)
++ unif.1000[i] <- mean(X.samp.1000)
++ }
+> mean(unif.10)
+[1] 4.998722
+> mean(unif.100)
+[1] 4.999894
+> mean(unif.1000)
+[1] 5.000122
+> var(unif.10)
+[1] 0.1327079
+> var(unif.100)
+[1] 0.01333784
+> var(unif.1000)
+[1] 0.001331041
+
+// self quiz
+> mu <- 170.035
+> sig <- 1.122
+> pnorm(mu+2,mu,sig) - pnorm(mu-2,mu,sig)
+[1] 0.9253374
+> 
+> qnorm(0.95)
+[1] 1.644854
+> 
+> pnorm(169, mu, sig)
+[1] 0.1781444
+> 
+> pnorm(10,10.53,2/sqrt(36))
+[1] 0.0559174
+> 
+> pnorm(145,145,14/sqrt(49))- pnorm(143,145,14/sqrt(49))
+[1] 0.3413447
+> 
+> qnorm(0.9,145,14/sqrt(49))
+[1] 147.5631
+> 
+> qnorm(0.75,145,14/sqrt(49)) - qnorm(0.25,145,14/sqrt(49))
+[1] 2.697959
+> 
+> qnorm(0.90,12.5,7.216878/sqrt(25))
+[1] 14.34976
+> 
+> sd(7.4)
+[1] NA
+> sqrt(7.4)
+[1] 2.720294
+> sqrt(7.4) / sqrt(60)
+[1] 0.3511885
+> 
+> pnorm(7,7.4,0.3511885)
+[1] 0.1273538
+> 
+> ppois(6,7.4)
+[1] 0.3919617
+> 
+> 3.5 / sqrt(70)
+[1] 0.41833
+> 
+> qnorm(0.95) * (3.5 / sqrt(70))
+[1] 0.6880916
+> 
+> 1 - pnorm(4,3.5,0.41833)
+[1] 0.1159989
+
+// 
