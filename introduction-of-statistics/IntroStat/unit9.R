@@ -57,19 +57,19 @@ sum((x - 1.6)^2 * p)
 0.75
 
 # 11) What is the probability of getting 4 or more successes (popped balloons) in 5 throws(rounded to two decimal places)?
-1 - pbinom(3, 5, .15)
+1 - pbinom(x = 3, size = 5, prob = .15)
 0.00
 
 # 12) A Poisson distribution called Q has an expectation of 4.
 # Which of the following R commands would tell you the probability
 # that a randomly selected value from Q is less than 6 and greater than or equal to 4 (read the question carefully):
-ppois(5, 4) - ppois(3, 4)
+ppois(q = 5, lambda = 4) - ppois(q = 3, lambda = 4)
 
 # 13) At a small store, a customer enters the front door on average every 8 minutes.
 # A prior study indicated that the time between customers entering the front door during weekdays follows an exponential distribution.
 # What is the probability that the time between customers entering the store on a weekday will be less than or equal to 7?
 lambda <- 1 / 8
-pexp(7, rate = lambda)
+pexp(q = 7, rate = lambda)
 0.58
 
 # 14) You read a research paper that applies to your industry,
@@ -92,22 +92,22 @@ sqrt(2)
 # 17) Traffic at the airport changed recently, and you collected 36 weeks of data in an effort to estimate the new rate of tire replacements.
 # You found that the average tire replacements per week was 2 and the numbers followed a Poisson distribution, but you realize that your sample might not be 100% accurate.
 # What is the 99th percentile of sampling distribution of the mean of tires replaced per week (based on the observed mean of 2 and the sample size of 36)?
-qnorm(.99, mean = 2, sd = sqrt(2) / 6)
+qnorm(p = .99, mean = 2, sd = sqrt(2) / 6)
 
 # 18) The mean weekly sales per employee at a nationwide store is normally distributed with a mean of $7,300 per week and a standard deviation of $700.
 # What is the probability that a randomly selected employee will have sales less than $6,500?
-pnorm(6500, mean = 7300, sd = 700)
+pnorm(q = 6500, mean = 7300, sd = 700)
 0.13
 
-# 19) The time between incoming customer service calls to a computer-repair hotlinefollows an exponential distribution with an expectation of 2 minutes between calls.
+# 19) The time between incoming customer service calls to a computer-repair hotline follows an exponential distribution with an expectation of 2 minutes between calls.
 # What is the probability that the time between calls will be less than 1 minute for a randomly selected period?
 lambda <- 1 / 2
-pexp(1, rate = lambda)
+pexp(q = 1, rate = lambda)
 0.39
 
 # 20) The time between customer service calls to a computer-repair hotline follows an exponential distribution with an expectation of 2 minutes between calls.
 # We collect calls for 40 minutes at random times during the month (a sample of size n=40).
 # What is the probability that the mean of our sampling distribution will be greater than 2.2 minutes?
 sd <- sqrt(2^2) / sqrt(40)
-1 - pnorm(2.2, mean = 2, sd = sd)
+1 - pnorm(q = 2.2, mean = 2, sd = sd)
 0.26
