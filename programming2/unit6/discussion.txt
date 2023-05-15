@@ -1,0 +1,11 @@
+What are the differences of handling Socket and ServerSocket ?
+A Socket is used to represent one endpoint of a network connection on the client side. On the other hand, a ServerSocket is used to represent one endpoint on the server side to listen to incoming network connections from the client side.
+
+The Socket is used to establish a connection to the server on the client side. The client creates a Socket object and specifies the IP address and port number of the server to connect. Once the client and server are connected, the client sends and receives data via the Socket. The Socket class has methods to read, and write data and close the connection.
+
+As for the ServerSocket, it is used to listen to incoming network connections from the client side to the server side. The server creates a ServerSocket object and binds the object to a port number that is specified on the local machine. And then, the ServerSocket can listen to incoming network connections from the client side. Once the client connects, it returns a Socket object representing the client connection. Then, the server can communicate with the client via the Socket object.
+
+In conclusion, the Socket is used to establish a connection to the server on the client side. On the flip side, the ServerSocket is used to listen to incoming client-side network connections on the server side. Once they connect with each other, they can communicate via the Socket.
+
+Reference
+Eck, D. J. (2019). Introduction to programming using Java, version 8.1. Hobart and William Smith Colleges. http://math.hws.edu/javanotes 
