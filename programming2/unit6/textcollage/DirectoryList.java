@@ -13,7 +13,7 @@ public class DirectoryList {
 
       String directoryName; // Directory name entered by the user.
       File directory; // File object referring to the directory.
-      String[] files; // Array of file names in the directory.
+      // String[] files; // Array of file names in the directory.
       Scanner scanner; // For reading a line of input from the user.
 
       scanner = new Scanner(System.in); // scanner reads from standard input.
@@ -28,12 +28,29 @@ public class DirectoryList {
          else
             System.out.println("That file is not a directory.");
       } else {
-         files = directory.list();
+         // files = directory.list();
          System.out.println("Files in directory \"" + directory + "\":");
-         for (int i = 0; i < files.length; i++)
-            System.out.println("   " + files[i]);
+         listFiles(directory);
+         // for (int i = 0; i < files.length; i++)
+         // System.out.println(" " + files[i]);
       }
 
+      scanner.close();
+
    } // end main()
+
+   public static void listFiles(File directory) {
+      File[] files = directory.listFiles();
+      if (files != null) {
+         for (File file : files) {
+            if (file.isDirectory()) {
+               System.out.println("Subdirectory: " + file.getAbsolutePath());
+               listFiles(file);
+            } else {
+               System.out.println("   " + file.getName());
+            }
+         }
+      }
+   }
 
 } // end class DirectoryList
