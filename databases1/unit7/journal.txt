@@ -1,0 +1,117 @@
+Describe what you did
+
+Took the self-quiz until I got a full score.
+
+Worked on the Discussion Forum to learn properties that transactions should have to execute correctly.
+
+Worked on the Programming Assignment.
+
+Comments on three classmates’ posts in the Discussion Forum.
+
+Worked on the Learning Journal to reflect on what I did and learned this week.
+
+
+What you learned
+
+I learned the properties of transactions such as atomicity, consistency, isolation, and durability. In addition, I learned the advantages and disadvantages of Embedded SQL and the Library of function calls.
+
+
+Your weekly activities
+
+Since I injured my left knee, I have more time to spend my time to tackle the assignments because I cannot play soccer. Therefore, I was able to finish the assignments earlier than usual.
+
+
+In what ways are you able to apply the ideas and concepts gained
+
+As a web developer, knowing the principle of transactions, and the advantages and disadvantages of Embedded SQL and Library of function calls is helpful to determine how to approach real case scenarios in a working environment.
+
+
+Describe one important thing that you are thinking about in relation to the activity
+
+One important thing that I am thinking about in the activity is debugging. While working on the Programming Assignment, I got several errors after executing SQL statements. I think detecting bugs quickly is critical as a web developer.
+
+
+List two main approaches to database programming and discuss the advantages and disadvantages of each approach
+
+
+Embedded SQL Approach
+
+
+Advantages
+
+Error checking and validation:
+
+Since SQL queries are coded in the programming source code, it enables developers to check errors and validate against a database schema easier during compilation.
+
+Readability:
+
+Putting SQL queries in the source code makes the program more readable and easier to understand.
+
+Integration:
+
+This approach allows for seamless integration of SQL statements in the application code.
+
+Flexibility:
+
+Developers have greater flexibility and control over the database operations. They can construct dynamic SQL queries based on runtime conditions.
+
+Performance:
+
+This approach enables developers to improve performance compared to other approaches because they can optimize the SQL statements based on the specific database and application requirements.
+
+
+Disadvantages
+
+Security risks:
+
+Developers must take precautions to prevent SQL injection attacks. They need to protect against malicious SQL statements.
+
+Portability:
+
+This approach might bring issues with portability across different database systems. SQL syntax and semantics might be different between databases.
+
+Code Maintenance:
+
+This approach might make code maintenance more difficult. Putting SQL statements in programming language code can make the code harder to read, understand, and debug. Additionally, updating the database schema might require modifications in multiple places within the application code, which is cumbersome.
+
+
+Library of Function Calls Approach
+
+
+Advantages
+
+Abstraction:
+
+The API approach provides a level of abstraction that simplifies the interaction with the database. It encapsulates complex database operations into high-level function calls, making it easier for developers to work with the database.
+
+Independence:
+
+Since functions are independent of each other, one database statement does not affect another database statement in another function.
+
+Reusability:
+
+Developers can reuse commonly used code snippets for database operations. This promotes code reuse, reduces redundancy, and improves productivity.
+
+
+Disadvantages
+
+Complexity:
+
+The approach might require more complex code to handle database operations, especially when dealing with multiple transactions.
+
+Performance:
+
+Function calls might introduce some performance overhead and affect the performance of the application.
+
+Limited Flexibility:
+
+The library of function calls approach might not offer the same level of flexibility as writing custom SQL queries or procedural code.
+
+Dependency on the API:
+
+Developers become dependent on the API/library being used in this approach. If the API is updated, it might require updates to the codebase. In addition, switching to a different database system might require rewriting code that relies heavily on the specific API.
+
+
+Reference
+
+Sharma, N., Perniu, L., Chong, R. F., Iyer, A., Nandan, C., Mitea, A. C., Nonvinkere, M. & Danubianu, M. (2010). Database fundamentals. IBM Canada.
