@@ -1,0 +1,59 @@
+Assume that you are testing the Orders database introduced in Watt (2014) - Appendix C. Discuss the problems and possible consequences of using the Orders database. Provide examples of how you would address any problems that you identified. 
+
+Lack of primary keys and foreign keys:
+Problem: The tables do not have primary keys defined. In addition to the primary keys, foreign keys are also not defined to establish relationships between tables.
+
+Consequence: Without primary keys, duplicate records can be inserted, which leads to data inconsistency. The absence of foreign keys can result in orphaned records and referential integrity issues.
+
+Solution: Define primary keys for each table and establish foreign key relationships between related tables.
+
+ALTER TABLE [dbo].[tblCustomers] ADD CONSTRAINT PK_tblCustomers PRIMARY KEY (CustomerID);
+ALTER TABLE [dbo].[tblOrders] ADD CONSTRAINT PK_tblOrders PRIMARY KEY (OrderID);
+ALTER TABLE [dbo].[tblOrderDetails] ADD CONSTRAINT PK_tblOrderDetails PRIMARY KEY (OrderID, ProductID);
+ALTER TABLE [dbo].[tblProducts] ADD CONSTRAINT PK_tblProducts PRIMARY KEY (ProductID);
+ALTER TABLE [dbo].[tblShippers] ADD CONSTRAINT PK_tblShippers PRIMARY KEY (ShipperID);
+ALTER TABLE [dbo].[tblSupplier] ADD CONSTRAINT PK_tblSupplier PRIMARY KEY (SupplierID);
+
+ALTER TABLE [dbo].[tblOrders] ADD CONSTRAINT FK_tblOrders_tblCustomers FOREIGN KEY (CustomerID) REFERENCES [dbo].[tblCustomers] (CustomerID);
+ALTER TABLE [dbo].[tblOrderDetails] ADD CONSTRAINT FK_tblOrderDetails_tblOrders FOREIGN KEY (OrderID) REFERENCES [dbo].[tblOrders] (OrderID);
+ALTER TABLE [dbo].[tblOrderDetails] ADD CONSTRAINT FK_tblOrderDetails_tblProducts FOREIGN KEY (ProductID) REFERENCES [dbo].[tblProducts] (ProductID);
+ALTER TABLE [dbo].[tblProducts] ADD CONSTRAINT FK_tblProducts_tblSupplier FOREIGN KEY (SupplierID) REFERENCES [dbo].[tblSupplier] (SupplierID);
+
+
+Inconsistent data types:
+Problem: The CustomerID field in the tblCustomers table is a nvarchar(5) type, while in the other tables, they are an int type.
+
+Consequence: This inconsistency can lead to data integrity issues and errors when joining tables.
+
+Solution: Ensure that the data types of related fields are consistent across tables.
+
+Nullable key fields:
+Problem: Some key fields such as OrderID in tblOrders and tblOrderDetails are nullable.
+
+Consequence: Allowing null values in key fields can lead to data inconsistency and difficulties in establishing relationships between tables.
+
+Solution: Set key fields to NOT NULL.
+
+ALTER TABLE [dbo].[tblOrders] ALTER COLUMN OrderID int NOT NULL;
+ALTER TABLE [dbo].[tblOrderDetails] ALTER COLUMN OrderID int NOT NULL;
+ALTER TABLE [dbo].[tblOrderDetails] ALTER COLUMN ProductID int NOT NULL;
+
+
+Incomplete table definitions:
+Problem: Some tables such as tblEmployees and tblCategories are missing.
+
+Consequence: The absence of these tables can lead to incomplete data representation and difficulties in establishing relationships between tables.
+
+Solution: Create the missing tables and define their relationships with existing tables.
+
+CREATE TABLE [dbo].[tblEmployees](
+[EmployeeID] [int] NOT NULL,
+...
+CONSTRAINT PK_tblEmployees PRIMARY KEY (EmployeeID)
+) ON [PRIMARY];
+
+ALTER TABLE [dbo].[tblOrders] ADD CONSTRAINT FK_tblOrders_tblEmployees FOREIGN KEY (EmployeeID) REFERENCES [dbo].[tblEmployees] (EmployeeID);
+
+
+Reference
+Watt, A., & Eng, N. (2014). Database design,  2nd ed. BCcampus, BC Open Textbook Project. Retrieved from https://opentextbc.ca/dbdesign01 
