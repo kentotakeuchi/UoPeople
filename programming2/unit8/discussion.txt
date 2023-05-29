@@ -1,0 +1,20 @@
+When developing new software, we should take into account how to create a specific "Look and Feel" per customer. What are the advantages of using Java GUI?
+Java GUI (Graphical User Interface) is a tool to create the visual part of the software such as buttons, menus, and windows that the end user interacts with. There are some advantages to using Java GUI to create a specific "Look and Feel" per customer and developer.
+
+It works on different operating systems:
+Java GUI enables the user interface to look and behave the same on different operating systems. Therefore, the software looks almost consistent with whatever operating system the user uses.
+
+It can be customized:
+Java GUI allows developers to customize the user interface. Developers can style colors, fonts, and layouts to attract end users or build their brands.
+
+It is reusable:
+Since Java GUI promotes component-based development, it allows developers to create reusable GUI components. Reusable components save time to develop the software and allow them to focus on customer-specific features.
+
+It has sufficient built-in components:
+Java GUI has lots of built-in components such as buttons, menus, and dialog boxes. Since they already have basic functionalities, developers do not need to reinvent the wheel. In addition, these components are customizable to fit customer-specific preferences.
+
+It has abundant documentation and community support:
+Java GUI has lots of resources and communities in which developers actively involve. It helps developers develop the software since they can find the information they need easily. The more developer-friendly, the more time they can focus on implementing customer-specific needs.
+
+Reference
+Eck, D. J. (2014). Introduction to programming using Java, version 7.0.3. Hobart and William Smith Colleges. http://math.hws.edu/eck/cs124/downloads/javanotes7-linked.pdf 
