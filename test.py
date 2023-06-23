@@ -1,14 +1,31 @@
-def invert_dict(d: dict) -> dict:
-    print('inverting dict..')
-    inverse = dict()
-    for key in d:
-        vals = d[key]
-        for v in vals:
-            if v not in inverse:
-                inverse[v] = [key]
-            else:
-                inverse[v].append(key)
-    return inverse
+import numpy as np
+import matplotlib.pyplot as plt
 
 
-invert_dict({1: 10, 2: 10, 3: 20})
+def algorithmA(n):
+    return 1000 * n ** 3
+
+
+def algorithmB(n):
+    return 2 ** n
+
+
+# Generate x values (problem sizes)
+x = np.arange(1, 21)
+
+# Calculate y values (number of steps) for each algorithm
+y_algorithmA = algorithmA(x)
+y_algorithmB = algorithmB(x)
+
+# Plot the graph
+plt.plot(x, y_algorithmA, label='Algorithm A (1000n^3)')
+plt.plot(x, y_algorithmB, label='Algorithm B (2^n)')
+
+# Set up the plot
+plt.xlabel('Problem Size (n)')
+plt.ylabel('Number of Steps')
+plt.title('Algorithm Comparison')
+plt.legend()
+
+# Display the graph
+plt.show()

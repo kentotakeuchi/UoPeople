@@ -1,0 +1,61 @@
+**For the following problems, develop your own answers and post your answers to the discussion forum.  Review the responses of at least 3 of your peers.  If you find that your peer has come up with a different answer than your own, engage your peer in a dialogue to ‘compare notes’ to determine where the problem lies.**
+
+**If you have discovered a different way of understanding the problem or solving the problem share your approach with your peers.  The objective of this assignment is to collaboratively learn and develop correct results for each of the problems.    Asymptotic analysis is a difficult concept to master as such we will all benefit by understanding each others perspectives.**
+
+**1. Suppose that algorithm A takes 1000n^3 steps and algorithm B takes 2^n steps for a problem of size n. For what size of problem is algorithm A faster than B (meaning algorithm A has fewer steps than B)?  In your answer describe not only what the answer is but how you arrived at the answer.**
+
+Here is the program in Java to check for what size of a problem algorithm A(1000n^3) has fewer steps than algorithm B(2^n):
+
+```java
+public class AlgorithmComparison {
+    public static void main(String[] args) {
+        int n = 1;
+
+        // Double.compare(double d1, double d2)
+        // d1 = d2 -> return 0
+        // d1 < d2 -> return less than 0
+        // d1 > d2 -> return greater than 0
+        while (Double.compare(Math.pow(2, n), 1000 * Math.pow(n, 3)) < 0) {
+            n++;
+        }
+
+        System.out.println("The first integer of n that '1000n^3 < 2^n' is: " + n);
+    }
+}
+```
+
+The output:
+
+The first integer of n that '1000n^3 < 2^n' is: 24
+
+Therefore, I could say that the algorithm A is faster that the algorithm B when the size of the problem “n” is more than equal 24.
+
+**2. Give the upper bound (big O notation) that you can for the following code fragment, as a function of the initial value of n.**
+
+```java
+for(int i = 0; i < n; i++) {
+
+	for(int j = 0; j < i; j++){
+
+		//do swap stuff, constant time
+
+	}
+
+}
+```
+
+The upper bound (big O notation) of this code fragment can be determined by analyzing the number of iterations that the nested for loop performs. The outer for loop iterates from 0 to n -1. The inner for loop iterates from 0 to i - 1. Therefore, the total number of iterations is approximately the sum of the first n - 1 integers. The formula is “(n - 1) * (n - 1 + 1) / 2”. When we would like to determine the big O notation, we can drop the constants and lower-order terms. Therefore, the big O notation is O(n^2)
+
+**Do you think that the lower bound is likely to be the same as the answer you gave for**
+
+**the upper bound? In your response state why or why not.**
+
+The lower bound can be the same as the upper bound because the number of iterations of the nested for loop depends on the current value (valuable “i” in this case) of the outer for loop. Hence, the lower bound is also O(n^2).
+
+**Reference:**
+
+Shaffer, C. (2011). *Data Structures and Algorithms in A Practical Introduction to Data Structures*
+
+*and Algorithm Analysis*.
+
+https://my.uopeople.edu/pluginfile.php/1709188/mod_page/content/4/Practical_Into_to_Data_Structures_and_Algorithms_-_Shaffer.pdf
